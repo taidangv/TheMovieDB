@@ -26,9 +26,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$rootProject.kotlinVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    //implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
+    //implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
 
     // testing dependencies
     testImplementation "junit:junit:$rootProject.junitVersion"
