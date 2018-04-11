@@ -1,7 +1,7 @@
 package com.taidang.themoviedb.di.module
 
-import com.taidang.themoviedb.di.ApplicationScoped
 import com.taidang.themoviedb.domain.ConfigurationRepository
+import com.taidang.themoviedb.presentation.di.ApplicationScoped
 import com.taidang.themoviedb.repository.ConfigurationRemoteDataStore
 import com.taidang.themoviedb.repository.http.ConfigurationHttpClient
 import com.taidang.themoviedb.repository.mapper.ApiConfigurationMapper

@@ -3,9 +3,8 @@ package com.taidang.themoviedb.di.module
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.taidang.themoviedb.di.ApplicationScoped
-import com.taidang.themoviedb.di.DependencyName.Companion.DI_NAME_API_BASE_URL
-import com.taidang.themoviedb.di.DependencyName.Companion.DI_NAME_DEBUGGABLE
+import com.taidang.themoviedb.presentation.di.ApplicationScoped
+import com.taidang.themoviedb.presentation.di.DependencyName
 import com.taidang.themoviedb.repository.http.ConfigurationHttpClient
 import dagger.Module
 import dagger.Provides
@@ -22,8 +21,8 @@ class NetworkModule {
 
     @Provides
     @ApplicationScoped
-    @Named(DI_NAME_API_BASE_URL)
-    fun providesBaseUrl(): String = TODO("to be added later")
+    @Named(DependencyName.DI_NAME_API_BASE_URL)
+    fun providesBaseUrl(): String = ""
 
     @Provides
     @ApplicationScoped
@@ -35,7 +34,7 @@ class NetworkModule {
 
     @Provides
     @ApplicationScoped
-    fun providesOkHttpClient(@Named(DI_NAME_DEBUGGABLE) isDebug: Boolean): OkHttpClient {
+    fun providesOkHttpClient(@Named(DependencyName.DI_NAME_DEBUGGABLE) isDebug: Boolean): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger {
             println("OkHttpDebug $it")
         })
@@ -50,7 +49,7 @@ class NetworkModule {
 
     @Provides
     @ApplicationScoped
-    fun providesRetrofit(okHttpClient: OkHttpClient, gson: Gson, @Named(DI_NAME_API_BASE_URL) baseUrl: String): Retrofit {
+    fun providesRetrofit(okHttpClient: OkHttpClient, gson: Gson, @Named(DependencyName.DI_NAME_API_BASE_URL) baseUrl: String): Retrofit {
         return Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(okHttpClient)

@@ -1,4 +1,4 @@
-package com.taidang.themoviedb.di
+package com.taidang.themoviedb.presentation.di
 
 class DependencyName {
     companion object {

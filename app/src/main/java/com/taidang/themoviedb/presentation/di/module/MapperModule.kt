@@ -1,4 +1,4 @@
-package com.taidang.themoviedb.di.module
+package com.taidang.themoviedb.presentation.di.module
 
 import com.taidang.themoviedb.repository.mapper.ApiConfigurationMapper
 import com.taidang.themoviedb.repository.mapper.CountryMapper

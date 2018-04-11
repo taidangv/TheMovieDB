@@ -1,7 +1,8 @@
-package com.taidang.themoviedb
+package com.taidang.themoviedb.presentation.ui.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.taidang.themoviedb.R
 
 class MainActivity : AppCompatActivity() {
 
