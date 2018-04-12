@@ -6,13 +6,15 @@ import com.taidang.themoviedb.presentation.di.ApplicationScoped
 import com.taidang.themoviedb.presentation.di.module.ApplicationModule
 import com.taidang.themoviedb.presentation.di.module.MapperModule
 import com.taidang.themoviedb.presentation.di.module.SplashModule
+import com.taidang.themoviedb.presentation.di.module.UsecaseModule
 import dagger.Component
 
 @Component(modules = [
     ApplicationModule::class,
     RepositoryModule::class,
     NetworkModule::class,
-    MapperModule::class])
+    MapperModule::class,
+    UsecaseModule::class])
 @ApplicationScoped
 interface ApplicationComponent {
     fun splashModule(splashModule: SplashModule): SplashComponent
