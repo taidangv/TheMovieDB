@@ -6,7 +6,7 @@ import com.taidang.themoviedb.presentation.presenter.SplashPresenter
 import dagger.Module
 import dagger.Provides
 
-@Module(includes = [UsecaseModule::class])
+@Module
 class SplashModule {
 
     @Provides
