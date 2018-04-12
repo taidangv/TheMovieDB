@@ -26,7 +26,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$rootProject.kotlinVersion"
+    implementation "org.jetbrains.anko:anko:$rootProject.ankoVersion"
+    implementation "androidx.core:core-ktx:${rootProject.androidKTXVersion}"
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:${rootProject.rxAndroidVersion}"
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
