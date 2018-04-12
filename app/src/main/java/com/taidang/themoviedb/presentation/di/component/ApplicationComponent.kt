@@ -2,6 +2,7 @@ package com.taidang.themoviedb.presentation.di.component
 
 import com.taidang.themoviedb.di.module.NetworkModule
 import com.taidang.themoviedb.di.module.RepositoryModule
+import com.taidang.themoviedb.presentation.TMDBApp
 import com.taidang.themoviedb.presentation.di.ApplicationScoped
 import com.taidang.themoviedb.presentation.di.module.ApplicationModule
 import com.taidang.themoviedb.presentation.di.module.MapperModule
@@ -17,5 +18,6 @@ import dagger.Component
     UsecaseModule::class])
 @ApplicationScoped
 interface ApplicationComponent {
+    fun inject(application: TMDBApp)
     fun splashModule(splashModule: SplashModule): SplashComponent
 }

@@ -22,7 +22,7 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
         setContentView(R.layout.activity_splash)
 
 
-        (application as TMDBApp).getAppComponent()
+        (application as TMDBApp).appComponent
                 .splashModule(SplashModule())
                 .inject(this)
 
