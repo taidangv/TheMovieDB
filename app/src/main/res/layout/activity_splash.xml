@@ -3,14 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EEEEEE">
+    android:background="@color/colorPrimaryDark">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:layout_width="@dimen/splash_logo_size"
+        android:layout_height="@dimen/splash_logo_size"
         android:layout_gravity="center"
-        android:text="@string/app_name"
-        android:textColor="#333333"
-        android:textSize="25sp"/>
+        android:src="@drawable/logo_tmdb"/>
+
+    <ProgressBar
+        android:id="@+id/vLoading"
+        android:layout_width="@dimen/splash_loading_size"
+        android:layout_height="@dimen/splash_loading_size"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="80dp"
+        android:indeterminate="true"/>
 
 </FrameLayout>
