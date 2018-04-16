@@ -18,10 +18,9 @@ class SharedPrefAppConfigManager(private val mPref: SharedPreferences, private v
 
     override fun getImagesConfig(): ImagesConfig? {
         val json = mPref.getString(PREF_IMAGES_CONFIG, null)
-        return if (json != null)
+        return json?.let {
             mGson.fromJson(json, ImagesConfig::class.java)
-        else
-            null
+        }
     }
 
     override fun saveImagesConfig(imagesConfig: ImagesConfig?) {
@@ -32,10 +31,9 @@ class SharedPrefAppConfigManager(private val mPref: SharedPreferences, private v
 
     override fun getCountries(): List<Country> {
         val json = mPref.getString(PREF_COUNTRIES, null)
-        return if (json != null)
-            mGson.fromJson(json, createType<List<Country>>())
-        else
-            listOf()
+        return json?.let {
+            mGson.fromJson(it, createType<List<Country>>()) as List<Country>
+        } ?: emptyList()
     }
 
     override fun saveCountries(countries: List<Country>) {
@@ -44,10 +42,8 @@ class SharedPrefAppConfigManager(private val mPref: SharedPreferences, private v
 
     override fun getCurrentCountry(): Country? {
         val json = mPref.getString(PREF_CURRENT_COUNTRY, null)
-        return if (json != null) {
+        return json?.let {
             mGson.fromJson(json, Country::class.java)
-        } else {
-            null
         }
     }
 
