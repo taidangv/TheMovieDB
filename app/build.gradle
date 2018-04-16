@@ -29,7 +29,11 @@ android {
 def getApiKey() {
     Properties props = new Properties()
     props.load(project.rootProject.file('local.properties').newDataInputStream())
-    return props.getProperty("tmdb_api_key")
+    def apiKey = props.getProperty("tmdb_api_key")
+    if (apiKey == null || apiKey.isEmpty()) {
+        println("NO TMDB API KEY PROVIDED !!!")
+    }
+    return apiKey
 }
 
 dependencies {
@@ -38,6 +42,7 @@ dependencies {
     implementation "org.jetbrains.anko:anko:$rootProject.ankoVersion"
     implementation "androidx.core:core-ktx:${rootProject.androidKTXVersion}"
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:${rootProject.rxKotlinVersion}"
     implementation "io.reactivex.rxjava2:rxandroid:${rootProject.rxAndroidVersion}"
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"

@@ -19,5 +19,6 @@ import dagger.Component
 @ApplicationScoped
 interface ApplicationComponent {
     fun inject(application: TMDBApp)
-    fun splashModule(splashModule: SplashModule): SplashComponent
+
+    fun plus(splashModule: SplashModule): SplashComponent
 }
