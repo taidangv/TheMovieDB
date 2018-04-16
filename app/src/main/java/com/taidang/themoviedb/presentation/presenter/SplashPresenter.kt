@@ -24,10 +24,17 @@ class SplashPresenter(private val getConfigUsecase: GetConfigUsecase, private va
                     appConfigManager.saveCountries(countries)
                 }
                 .subscribe(
-                        { (_, countries) -> view?.displayChooseCountryDialog(countries) },
+                        { (_, countries) -> pickCountryIfAny(countries) },
                         { throwable -> view?.displayError(throwable) })
 
         disposables.add(disposable)
+    }
+
+    private fun pickCountryIfAny(countries: List<Country>) {
+        if (appConfigManager.getCurrentCountry() == null)
+            view?.displayChooseCountryDialog(countries)
+        else
+            view?.gotoMainScreen()
     }
 
     override fun pickCountry(country: Country) {
