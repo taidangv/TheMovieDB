@@ -5,7 +5,8 @@ import androidx.core.content.edit
 import com.google.gson.Gson
 import com.taidang.themoviedb.domain.model.Country
 import com.taidang.themoviedb.domain.model.ImagesConfig
-import com.taidang.themoviedb.extension.createType
+import com.taidang.themoviedb.extension.fromJsonToListOf
+import com.taidang.themoviedb.extension.fromJsonToObject
 
 class SharedPrefAppConfigManager(private val mPref: SharedPreferences, private val mGson: Gson)
     : AppConfigManager {
@@ -18,9 +19,7 @@ class SharedPrefAppConfigManager(private val mPref: SharedPreferences, private v
 
     override fun getImagesConfig(): ImagesConfig? {
         val json = mPref.getString(PREF_IMAGES_CONFIG, null)
-        return json?.let {
-            mGson.fromJson(json, ImagesConfig::class.java)
-        }
+        return mGson.fromJsonToObject(json)
     }
 
     override fun saveImagesConfig(imagesConfig: ImagesConfig?) {
@@ -31,9 +30,7 @@ class SharedPrefAppConfigManager(private val mPref: SharedPreferences, private v
 
     override fun getCountries(): List<Country> {
         val json = mPref.getString(PREF_COUNTRIES, null)
-        return json?.let {
-            mGson.fromJson(it, createType<List<Country>>()) as List<Country>
-        } ?: emptyList()
+        return mGson.fromJsonToListOf(json)
     }
 
     override fun saveCountries(countries: List<Country>) {
@@ -42,9 +39,7 @@ class SharedPrefAppConfigManager(private val mPref: SharedPreferences, private v
 
     override fun getCurrentCountry(): Country? {
         val json = mPref.getString(PREF_CURRENT_COUNTRY, null)
-        return json?.let {
-            mGson.fromJson(json, Country::class.java)
-        }
+        return mGson.fromJsonToObject(json)
     }
 
     override fun saveCurrentCountry(country: Country?) {
