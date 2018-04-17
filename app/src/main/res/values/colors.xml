@@ -3,4 +3,13 @@
     <color name="colorPrimary">#414141</color>
     <color name="colorPrimaryDark">#2b2b2b</color>
     <color name="colorAccent">#fdd835</color>
+
+    <color name="text_primary_color">@color/colorAccent</color>
+    <color name="text_gray">#555555</color>
+    <color name="text_bright_gray">#888888</color>
+    <color name="text_brighter_gray">#BBBBBB</color>
+    <color name="text_brightest_gray">#DDDDDD</color>
+    <color name="text_white">#EEEEEE</color>
+    <color name="toolbar_bgr">@color/colorPrimaryDark</color>
+    <color name="toolbar_title_color">@color/colorAccent</color>
 </resources>
