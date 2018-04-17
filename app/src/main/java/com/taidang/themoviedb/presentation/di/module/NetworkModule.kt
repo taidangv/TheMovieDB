@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder
 import com.taidang.themoviedb.presentation.di.ApplicationScoped
 import com.taidang.themoviedb.presentation.di.DependencyName
 import com.taidang.themoviedb.repository.http.ConfigurationHttpClient
+import com.taidang.themoviedb.repository.http.MovieHttpClient
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
@@ -70,6 +71,12 @@ class NetworkModule {
     @ApplicationScoped
     fun providesConfigurationHttpClient(retrofit: Retrofit): ConfigurationHttpClient {
         return retrofit.create(ConfigurationHttpClient::class.java)
+    }
+
+    @Provides
+    @ApplicationScoped
+    fun providesMovieHttpClient(retrofit: Retrofit): MovieHttpClient {
+        return retrofit.create(MovieHttpClient::class.java)
     }
 
 }

@@ -1,8 +1,6 @@
 package com.taidang.themoviedb.presentation.di.module
 
-import com.taidang.themoviedb.repository.mapper.ApiConfigurationMapper
-import com.taidang.themoviedb.repository.mapper.CountryMapper
-import com.taidang.themoviedb.repository.mapper.ImagesConfigMapper
+import com.taidang.themoviedb.repository.mapper.*
 import dagger.Module
 import dagger.Provides
 
@@ -17,5 +15,11 @@ class MapperModule {
 
     @Provides
     fun providesCountryMapper() = CountryMapper()
+
+    @Provides
+    fun providesMovieMapper() = MovieMapper()
+
+    @Provides
+    fun providesMoviesInfoMapper(movieMapper: MovieMapper) = MoviesInfoMapper(movieMapper)
 
 }
