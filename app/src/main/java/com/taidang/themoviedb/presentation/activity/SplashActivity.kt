@@ -16,7 +16,7 @@ import javax.inject.Inject
 class SplashActivity : BaseActivity(), SplashContract.View {
 
     @Inject
-    lateinit var presenter: SplashContract.Presenter
+    override lateinit var mPresenter: SplashContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,9 +26,9 @@ class SplashActivity : BaseActivity(), SplashContract.View {
                 .plus(SplashModule())
                 .inject(this)
 
-        with(presenter) {
+        with(mPresenter) {
             attachView(this@SplashActivity)
-            fetchConfig()
+            start()
         }
     }
 
@@ -37,7 +37,7 @@ class SplashActivity : BaseActivity(), SplashContract.View {
         val displayLst = countries.map { "${it.name} (${it.isoCode})" }
         selector(title, displayLst,
                 { _, idx ->
-                    presenter.pickCountry(countries[idx])
+                    mPresenter.pickCountry(countries[idx])
                 })
     }
 
@@ -59,7 +59,7 @@ class SplashActivity : BaseActivity(), SplashContract.View {
     }
 
     override fun onDestroy() {
-        presenter.destroy()
+        mPresenter.destroy()
         super.onDestroy()
     }
 

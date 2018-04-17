@@ -10,14 +10,18 @@ import io.reactivex.rxkotlin.zipWith
 class SplashPresenter(private val getConfigUsecase: GetConfigUsecase, private val appConfigManager: AppConfigManager)
     : SplashContract.Presenter {
 
-    private var view: SplashContract.View? = null
+    override var mView: SplashContract.View? = null
     private val disposables = CompositeDisposable()
 
-    override fun fetchConfig() {
+    override fun start() {
+        fetchConfig()
+    }
+
+    private fun fetchConfig() {
         val disposable = getConfigUsecase.getApiConfiguration()
                 .zipWith(getConfigUsecase.getCountries())
                 .doOnEvent { _, _ ->
-                    view?.hideLoading()
+                    mView?.hideLoading()
                 }
                 .doOnSuccess { (apiConfigs, countries) ->
                     with(appConfigManager) {
@@ -27,29 +31,29 @@ class SplashPresenter(private val getConfigUsecase: GetConfigUsecase, private va
                 }
                 .subscribe(
                         { (_, countries) -> pickCountryIfAny(countries) },
-                        { throwable -> view?.displayError(throwable) })
+                        { throwable -> mView?.displayError(throwable) })
 
         disposables.add(disposable)
     }
 
     private fun pickCountryIfAny(countries: List<Country>) {
         if (appConfigManager.getCurrentCountry() == null)
-            view?.displayChooseCountryDialog(countries)
+            mView?.displayChooseCountryDialog(countries)
         else
-            view?.gotoMainScreen()
+            mView?.gotoMainScreen()
     }
 
     override fun pickCountry(country: Country) {
         appConfigManager.saveCurrentCountry(country)
-        view?.gotoMainScreen()
+        mView?.gotoMainScreen()
     }
 
-    override fun attachView(v: SplashContract.View) {
-        view = v
+    override fun attachView(view: SplashContract.View) {
+        mView = view
     }
 
     override fun destroy() {
-        view = null
+        mView = null
         disposables.dispose()
     }
 }

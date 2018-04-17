@@ -4,15 +4,16 @@ import com.taidang.themoviedb.domain.model.Country
 
 interface SplashContract {
 
-    interface View : IView {
-        fun displayChooseCountryDialog(countries: List<Country>)
+    interface View : IView<Presenter> {
         fun displayLoading()
         fun hideLoading()
+        fun displayError(throwable: Throwable)
+
+        fun displayChooseCountryDialog(countries: List<Country>)
         fun gotoMainScreen()
     }
 
     interface Presenter : IPresenter<View> {
-        fun fetchConfig()
         fun pickCountry(country: Country)
     }
 }
