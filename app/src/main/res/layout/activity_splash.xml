@@ -13,10 +13,9 @@
 
     <ProgressBar
         android:id="@+id/vLoading"
-        android:layout_width="@dimen/splash_loading_size"
-        android:layout_height="@dimen/splash_loading_size"
+        style="@style/LoadingView"
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="80dp"
-        android:indeterminate="true"/>
+        android:visibility="gone"/>
 
 </FrameLayout>

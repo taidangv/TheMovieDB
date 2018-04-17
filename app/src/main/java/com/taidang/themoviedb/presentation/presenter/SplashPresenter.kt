@@ -29,6 +29,7 @@ class SplashPresenter(private val getConfigUsecase: GetConfigUsecase, private va
                         saveCountries(countries)
                     }
                 }
+                .doOnSubscribe { mView?.displayLoading() }
                 .subscribe(
                         { (_, countries) -> pickCountryIfAny(countries) },
                         { throwable -> mView?.displayError(throwable) })

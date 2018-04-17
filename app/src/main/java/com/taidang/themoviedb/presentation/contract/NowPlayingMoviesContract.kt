@@ -1,17 +1,17 @@
 package com.taidang.themoviedb.presentation.contract
 
-import com.taidang.themoviedb.domain.model.Country
+import com.taidang.themoviedb.domain.model.Movie
 import com.taidang.themoviedb.presentation.contract.base.IBasePresenter
 import com.taidang.themoviedb.presentation.contract.base.IBaseView
 
-interface SplashContract {
+interface NowPlayingMoviesContract {
 
     interface View : IBaseView<Presenter> {
-        fun displayChooseCountryDialog(countries: List<Country>)
-        fun gotoMainScreen()
+        fun displayMovies(movies: List<Movie>)
+        fun gotoDetailsMovie(movie: Movie)
     }
 
     interface Presenter : IBasePresenter<View> {
-        fun pickCountry(country: Country)
+        fun chooseMovie(movie: Movie)
     }
 }

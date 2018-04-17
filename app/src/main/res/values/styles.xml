@@ -26,4 +26,9 @@
         <item name="android:textColor">@color/toolbar_title_color</item>
     </style>
 
+    <style name="LoadingView">
+        <item name="android:layout_width">@dimen/splash_loading_size</item>
+        <item name="android:layout_height">@dimen/splash_loading_size</item>
+        <item name="indeterminate">true</item>
+    </style>
 </resources>
