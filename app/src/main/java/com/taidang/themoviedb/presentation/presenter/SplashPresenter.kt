@@ -20,8 +20,10 @@ class SplashPresenter(private val getConfigUsecase: GetConfigUsecase, private va
                     view?.hideLoading()
                 }
                 .doOnSuccess { (apiConfigs, countries) ->
-                    appConfigManager.saveImagesConfig(apiConfigs.imagesConfig)
-                    appConfigManager.saveCountries(countries)
+                    with(appConfigManager) {
+                        saveImagesConfig(apiConfigs.imagesConfig)
+                        saveCountries(countries)
+                    }
                 }
                 .subscribe(
                         { (_, countries) -> pickCountryIfAny(countries) },

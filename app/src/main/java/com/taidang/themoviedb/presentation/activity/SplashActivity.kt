@@ -26,8 +26,10 @@ class SplashActivity : BaseActivity(), SplashContract.View {
                 .plus(SplashModule())
                 .inject(this)
 
-        presenter.attachView(this)
-        presenter.fetchConfig()
+        with(presenter) {
+            attachView(this@SplashActivity)
+            fetchConfig()
+        }
     }
 
     override fun displayChooseCountryDialog(countries: List<Country>) {
