@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vMainNav"
+    android:layout_width="@dimen/main_nav_view_width"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    android:paddingTop="70dp"
+    tools:showIn="@layout/activity_main">
+
+    <TextView
+        android:id="@+id/vNavItemMovies"
+        style="@style/NavItem"
+        android:text="Movies"/>
+
+    <TextView
+        android:id="@+id/vNavItemActors"
+        style="@style/NavItem"
+        android:text="Actors"/>
+
+</LinearLayout>

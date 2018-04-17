@@ -2,4 +2,6 @@
 <resources>
     <dimen name="splash_logo_size">100dp</dimen>
     <dimen name="splash_loading_size">40dp</dimen>
+    <dimen name="main_nav_view_width">270dp</dimen>
+    <dimen name="nav_text_size">20sp</dimen>
 </resources>

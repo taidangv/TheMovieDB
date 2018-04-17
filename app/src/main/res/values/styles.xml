@@ -26,4 +26,16 @@
         <item name="android:textColor">@color/toolbar_title_color</item>
     </style>
 
+    <style name="NavItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/nav_text_size</item>
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">30dp</item>
+        <item name="android:paddingRight">30dp</item>
+    </style>
+
 </resources>
