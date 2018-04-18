@@ -17,7 +17,13 @@ class MapperModule {
     fun providesCountryMapper() = CountryMapper()
 
     @Provides
-    fun providesMovieDetailsMapper() = MovieDetailsMapper()
+    fun prviodesCastMapper() = CastMapper()
+
+    @Provides
+    fun prviodesClipMapper() = ClipMapper()
+
+    @Provides
+    fun providesMovieDetailsMapper(castMapper: CastMapper, clipMapper: ClipMapper) = MovieDetailsMapper(castMapper, clipMapper)
 
     @Provides
     fun providesMovieMapper(detailsMapper: MovieDetailsMapper) = MovieMapper(detailsMapper)

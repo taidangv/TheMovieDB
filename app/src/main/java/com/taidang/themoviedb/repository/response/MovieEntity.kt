@@ -15,7 +15,7 @@ class MovieEntity(
         val vote_average: Float,
 
         // Movie details
-        val video: Boolean,
+        val videos: ClipResponse,
         val homepage: String?,
         val genres: JsonElement?, // too lazy to create entity and mapper
         val overview: String,
@@ -24,5 +24,7 @@ class MovieEntity(
         val status: String,
         val tagline: String?,
         val imdb_id: String,
-        val popularity: String
+        val popularity: String,
+        val credits: CreditsResponse,
+        val keywords: JsonElement // too lazy to create entity and mapper
 )
