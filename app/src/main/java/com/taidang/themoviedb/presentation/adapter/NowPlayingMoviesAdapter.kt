@@ -41,7 +41,7 @@ class MovieItemVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val vVote = itemView.findViewById(R.id.vMovieVote) as TextView
 
     fun bind(movie: Movie, imagesConfig: ImagesConfig) {
-        vVote.text = movie.getTMDbRating()
+        vVote.text = movie.vote.toString()
         Glide.with(itemView.context)
                 .load(imagesConfig.buildPosterUrl(movie.posterPath, ImageSize.MEDIUM))
                 .transition(DrawableTransitionOptions.withCrossFade())

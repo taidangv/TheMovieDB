@@ -5,6 +5,7 @@
     <color name="colorAccent">#fdd835</color>
 
     <color name="text_primary_color">@color/colorAccent</color>
+    <color name="text_dark_gray">#333333</color>
     <color name="text_gray">#555555</color>
     <color name="text_bright_gray">#888888</color>
     <color name="text_brighter_gray">#BBBBBB</color>
