@@ -21,7 +21,7 @@ class SharedPrefAppConfigManager(private val mPref: SharedPreferences, private v
     override fun getImagesConfig(): ImagesConfig {
         val json = mPref.getString(PREF_IMAGES_CONFIG, null)
         return mGson.fromJsonToObject(json)
-                ?: ImagesConfig("", emptyList(), emptyList(), emptyList(), emptyList())
+                ?: ImagesConfig("", emptyMap(), emptyMap(), emptyMap(), emptyMap())
     }
 
     override fun saveImagesConfig(imagesConfig: ImagesConfig) {

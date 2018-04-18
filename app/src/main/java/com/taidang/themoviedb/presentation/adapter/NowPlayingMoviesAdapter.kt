@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.taidang.themoviedb.R
+import com.taidang.themoviedb.domain.model.ImageSize
 import com.taidang.themoviedb.domain.model.ImagesConfig
 import com.taidang.themoviedb.domain.model.Movie
 import com.taidang.themoviedb.extension.inflate
@@ -41,7 +42,7 @@ class MovieItemVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(movie: Movie, imagesConfig: ImagesConfig) {
         vVote.text = movie.getTMDbRating()
         Glide.with(itemView.context)
-                .load(imagesConfig.buildPosterUrl(movie.posterPath))
+                .load(imagesConfig.buildPosterUrl(movie.posterPath, ImageSize.MEDIUM))
                 .into(vImage)
     }
 }
