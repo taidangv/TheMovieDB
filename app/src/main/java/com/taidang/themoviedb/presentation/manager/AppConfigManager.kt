@@ -5,8 +5,8 @@ import com.taidang.themoviedb.domain.model.ImagesConfig
 
 interface AppConfigManager {
 
-    fun getImagesConfig(): ImagesConfig?
-    fun saveImagesConfig(imagesConfig: ImagesConfig?)
+    fun getImagesConfig(): ImagesConfig
+    fun saveImagesConfig(imagesConfig: ImagesConfig)
     fun getCountries(): List<Country>
     fun saveCountries(countries: List<Country>)
     fun saveCurrentCountryCode(country: String)

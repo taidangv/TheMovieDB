@@ -8,4 +8,8 @@ data class Movie(val id: Int,
                  val shortenDescription: String,
                  val isAdultContent: Boolean,
                  val vote: Float,
-                 val genreIds: List<Int>)
+                 val genreIds: List<Int>) {
+
+    fun getTMDbRating() = "TMDb $vote"
+
+}

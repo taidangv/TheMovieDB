@@ -2,7 +2,8 @@ package com.taidang.themoviedb.presentation.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,12 +15,15 @@ import com.taidang.themoviedb.extension.visible
 import com.taidang.themoviedb.presentation.adapter.NowPlayingMoviesAdapter
 import com.taidang.themoviedb.presentation.contract.NowPlayingMoviesContract
 import com.taidang.themoviedb.presentation.di.module.NowPlayingMoviesModule
+import com.taidang.themoviedb.presentation.manager.AppConfigManager
 import kotlinx.android.synthetic.main.fragment_now_playing.*
 import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
 
 class NowPlayingMoviesFragment : Fragment(), NowPlayingMoviesContract.View {
 
+    @Inject
+    lateinit var mAppConfigManager: AppConfigManager
     @Inject
     override lateinit var mPresenter: NowPlayingMoviesContract.Presenter
 
@@ -35,8 +39,7 @@ class NowPlayingMoviesFragment : Fragment(), NowPlayingMoviesContract.View {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        vMoviesListing.layoutManager = layoutManager
+        vMoviesListing.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
         with(mPresenter) {
             attachView(this@NowPlayingMoviesFragment)
             start()
@@ -44,7 +47,7 @@ class NowPlayingMoviesFragment : Fragment(), NowPlayingMoviesContract.View {
     }
 
     override fun displayMovies(movies: List<Movie>) {
-        val adapter = NowPlayingMoviesAdapter(movies) { clickedItem ->
+        val adapter = NowPlayingMoviesAdapter(movies, mAppConfigManager.getImagesConfig()) { clickedItem ->
             mPresenter.chooseMovie(clickedItem)
         }
         vMoviesListing.adapter = adapter

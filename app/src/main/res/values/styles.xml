@@ -32,19 +32,11 @@
         <item name="android:indeterminate">true</item>
     </style>
 
-    <style name="MovieItemTitle">
+    <style name="MovieItemText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">17sp</item>
         <item name="android:textColor">@color/text_white</item>
-    </style>
-
-    <style name="MovieItemSubtitle">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">13sp</item>
-        <item name="android:textColor">@color/text_white</item>
-        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>

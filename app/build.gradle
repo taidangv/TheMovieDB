@@ -54,6 +54,8 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:${rootProject.okhttpLoggingVersion}"
     implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+    implementation "com.github.bumptech.glide:glide:${rootProject.glideVersion}"
+    kapt "com.github.bumptech.glide:compiler:${rootProject.glideVersion}"
 
     // testing dependencies
     testImplementation "junit:junit:$rootProject.junitVersion"

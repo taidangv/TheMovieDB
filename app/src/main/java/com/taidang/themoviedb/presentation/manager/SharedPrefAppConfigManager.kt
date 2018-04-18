@@ -18,14 +18,15 @@ class SharedPrefAppConfigManager(private val mPref: SharedPreferences, private v
         const val PREF_FIRST_TIME_LAUNCH = "first-time-launch"
     }
 
-    override fun getImagesConfig(): ImagesConfig? {
+    override fun getImagesConfig(): ImagesConfig {
         val json = mPref.getString(PREF_IMAGES_CONFIG, null)
         return mGson.fromJsonToObject(json)
+                ?: ImagesConfig("", emptyList(), emptyList(), emptyList(), emptyList())
     }
 
-    override fun saveImagesConfig(imagesConfig: ImagesConfig?) {
-        imagesConfig?.let {
-            mPref.edit { putString(PREF_IMAGES_CONFIG, mGson.toJson(imagesConfig)) }
+    override fun saveImagesConfig(imagesConfig: ImagesConfig) {
+        imagesConfig.let {
+            mPref.edit { putString(PREF_IMAGES_CONFIG, mGson.toJson(it)) }
         }
     }
 
