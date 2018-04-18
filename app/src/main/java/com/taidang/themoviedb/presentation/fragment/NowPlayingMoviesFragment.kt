@@ -12,11 +12,13 @@ import com.taidang.themoviedb.domain.model.Movie
 import com.taidang.themoviedb.extension.gone
 import com.taidang.themoviedb.extension.tmdbApp
 import com.taidang.themoviedb.extension.visible
+import com.taidang.themoviedb.presentation.adapter.GridItemDecoration
 import com.taidang.themoviedb.presentation.adapter.NowPlayingMoviesAdapter
 import com.taidang.themoviedb.presentation.contract.NowPlayingMoviesContract
 import com.taidang.themoviedb.presentation.di.module.NowPlayingMoviesModule
 import com.taidang.themoviedb.presentation.manager.AppConfigManager
 import kotlinx.android.synthetic.main.fragment_now_playing.*
+import org.jetbrains.anko.support.v4.dip
 import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
 
@@ -39,7 +41,12 @@ class NowPlayingMoviesFragment : Fragment(), NowPlayingMoviesContract.View {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        vMoviesListing.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
+        val spanCount = 2
+        vMoviesListing.layoutManager = GridLayoutManager(context, spanCount, RecyclerView.VERTICAL, false)
+
+        val itemDecoration = GridItemDecoration(spanCount, dip(3), false, 0)
+        vMoviesListing.addItemDecoration(itemDecoration)
+
         with(mPresenter) {
             attachView(this@NowPlayingMoviesFragment)
             start()

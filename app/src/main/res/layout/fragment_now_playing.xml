@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/now_playing_bgr">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/vMoviesListing"
@@ -24,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textColor="@color/text_bright_gray"
+        android:textColor="@color/text_brighter_gray"
         android:visibility="gone"
         tools:text="Opps! something went wrong"
         tools:visibility="visible"/>
