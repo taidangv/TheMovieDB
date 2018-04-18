@@ -5,10 +5,9 @@ data class Movie(val id: Int,
                  val releaseDate: Long,
                  val posterPath: String?,
                  val backdropPath: String?,
-                 val shortenDescription: String,
                  val isAdultContent: Boolean,
                  val vote: Float,
-                 val genreIds: List<Int>) {
+                 val details: MovieDetails?) {
 
     fun getTMDbRating() = "TMDb $vote"
 

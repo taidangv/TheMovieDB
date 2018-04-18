@@ -6,5 +6,6 @@ class DependencyName {
         const val DI_NAME_DEBUGGABLE = "di-name-debuggable"
         const val DI_NAME_APP_CONTEXT = "di-name-app-context"
         const val DI_NAME_API_KEY = "di-name-api-key"
+        const val DI_MOVIE_ID = "di-name-movie-id"
     }
 }

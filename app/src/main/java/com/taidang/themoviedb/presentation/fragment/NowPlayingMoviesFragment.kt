@@ -12,6 +12,7 @@ import com.taidang.themoviedb.domain.model.Movie
 import com.taidang.themoviedb.extension.gone
 import com.taidang.themoviedb.extension.tmdbApp
 import com.taidang.themoviedb.extension.visible
+import com.taidang.themoviedb.presentation.activity.MovieDetailsActivity
 import com.taidang.themoviedb.presentation.adapter.GridItemDecoration
 import com.taidang.themoviedb.presentation.adapter.NowPlayingMoviesAdapter
 import com.taidang.themoviedb.presentation.contract.NowPlayingMoviesContract
@@ -19,7 +20,7 @@ import com.taidang.themoviedb.presentation.di.module.NowPlayingMoviesModule
 import com.taidang.themoviedb.presentation.manager.AppConfigManager
 import kotlinx.android.synthetic.main.fragment_now_playing.*
 import org.jetbrains.anko.support.v4.dip
-import org.jetbrains.anko.support.v4.toast
+import org.jetbrains.anko.support.v4.startActivity
 import javax.inject.Inject
 
 class NowPlayingMoviesFragment : Fragment(), NowPlayingMoviesContract.View {
@@ -62,7 +63,7 @@ class NowPlayingMoviesFragment : Fragment(), NowPlayingMoviesContract.View {
     }
 
     override fun gotoDetailsMovie(movie: Movie) {
-        toast("gotoDetailsMovie: ${movie.title}")
+        startActivity<MovieDetailsActivity>(MovieDetailsActivity.EXTRA_MOVIE_ID to movie.id)
     }
 
     override fun displayLoading() {

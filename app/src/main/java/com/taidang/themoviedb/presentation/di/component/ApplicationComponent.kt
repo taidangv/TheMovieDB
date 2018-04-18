@@ -19,4 +19,5 @@ interface ApplicationComponent {
 
     fun plus(splashModule: SplashModule): SplashComponent
     fun plus(nowPlayingMoviesModule: NowPlayingMoviesModule): NowPlayingMoviesComponent
+    fun plus(movieDetailsModule: MovieDetailsModule): MovieDetailsComponent
 }

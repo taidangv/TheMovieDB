@@ -9,6 +9,7 @@ import com.taidang.themoviedb.repository.http.ConfigurationHttpClient
 import com.taidang.themoviedb.repository.http.MovieHttpClient
 import com.taidang.themoviedb.repository.mapper.ApiConfigurationMapper
 import com.taidang.themoviedb.repository.mapper.CountryMapper
+import com.taidang.themoviedb.repository.mapper.MovieMapper
 import com.taidang.themoviedb.repository.mapper.MoviesInfoMapper
 import dagger.Module
 import dagger.Provides
@@ -26,7 +27,7 @@ class RepositoryModule {
 
     @Provides
     @ApplicationScoped
-    fun providesMovieRepo(movieHttpClient: MovieHttpClient, moviesInfoMapper: MoviesInfoMapper): MovieRepository {
-        return MovieRemoteDataStore(movieHttpClient, moviesInfoMapper)
+    fun providesMovieRepo(movieHttpClient: MovieHttpClient, moviesInfoMapper: MoviesInfoMapper, movieMapper: MovieMapper): MovieRepository {
+        return MovieRemoteDataStore(movieHttpClient, moviesInfoMapper, movieMapper)
     }
 }

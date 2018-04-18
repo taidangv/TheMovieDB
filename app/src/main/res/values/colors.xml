@@ -13,5 +13,5 @@
     <color name="toolbar_bgr">@color/colorPrimaryDark</color>
     <color name="toolbar_title_color">@color/colorAccent</color>
 
-    <color name="now_playing_bgr">@color/colorPrimaryDark</color>
+    <color name="app_bgr">@color/colorPrimaryDark</color>
 </resources>
