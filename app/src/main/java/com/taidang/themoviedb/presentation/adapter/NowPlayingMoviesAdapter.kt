@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.taidang.themoviedb.R
 import com.taidang.themoviedb.domain.model.ImageSize
 import com.taidang.themoviedb.domain.model.ImagesConfig
@@ -43,6 +44,7 @@ class MovieItemVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         vVote.text = movie.getTMDbRating()
         Glide.with(itemView.context)
                 .load(imagesConfig.buildPosterUrl(movie.posterPath, ImageSize.MEDIUM))
+                .transition(DrawableTransitionOptions.withCrossFade())
                 .into(vImage)
     }
 }
