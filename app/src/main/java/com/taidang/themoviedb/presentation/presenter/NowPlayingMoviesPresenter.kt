@@ -3,16 +3,17 @@ package com.taidang.themoviedb.presentation.presenter
 import com.taidang.themoviedb.domain.model.Movie
 import com.taidang.themoviedb.domain.usecase.GetMoviesUsecase
 import com.taidang.themoviedb.presentation.contract.NowPlayingMoviesContract
+import com.taidang.themoviedb.presentation.manager.AppConfigManager
 import io.reactivex.disposables.CompositeDisposable
 
-class NowPlayingMoviesPresenter(private val getMoviesUsecase: GetMoviesUsecase, private val countryCode: String)
+class NowPlayingMoviesPresenter(private val getMoviesUsecase: GetMoviesUsecase, private val appConfigManager: AppConfigManager)
     : NowPlayingMoviesContract.Presenter {
 
     override var mView: NowPlayingMoviesContract.View? = null
     private val mDisposables = CompositeDisposable()
 
     override fun start() {
-        getMoviesUsecase.getNowPlayingMovies(countryCode)
+        getMoviesUsecase.getNowPlayingMovies(appConfigManager.getCurrentCountryCode())
                 .doOnSubscribe { mView?.displayLoading() }
                 .subscribe(
                         { mView?.displayMovies(it.movies) },

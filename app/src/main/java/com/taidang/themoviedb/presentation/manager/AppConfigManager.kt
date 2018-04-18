@@ -9,7 +9,9 @@ interface AppConfigManager {
     fun saveImagesConfig(imagesConfig: ImagesConfig?)
     fun getCountries(): List<Country>
     fun saveCountries(countries: List<Country>)
-    fun saveCurrentCountry(country: Country?)
-    fun getCurrentCountry(): Country?
+    fun saveCurrentCountryCode(country: String)
+    fun getCurrentCountryCode(): String
+    fun setLaunchAppAlready()
+    fun isFirstTimeLaunchApp(): Boolean
 
 }

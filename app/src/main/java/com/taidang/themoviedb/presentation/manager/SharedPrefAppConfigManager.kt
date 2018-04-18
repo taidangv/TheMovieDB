@@ -10,11 +10,12 @@ import com.taidang.themoviedb.extension.fromJsonToObject
 
 class SharedPrefAppConfigManager(private val mPref: SharedPreferences, private val mGson: Gson)
     : AppConfigManager {
-
     companion object {
+
         const val PREF_IMAGES_CONFIG = "images-config"
         const val PREF_COUNTRIES = "countries"
-        const val PREF_CURRENT_COUNTRY = "current-country"
+        const val PREF_CURRENT_COUNTRY_CODE = "current-country-code"
+        const val PREF_FIRST_TIME_LAUNCH = "first-time-launch"
     }
 
     override fun getImagesConfig(): ImagesConfig? {
@@ -37,14 +38,19 @@ class SharedPrefAppConfigManager(private val mPref: SharedPreferences, private v
         mPref.edit { putString(PREF_COUNTRIES, mGson.toJson(countries)) }
     }
 
-    override fun getCurrentCountry(): Country? {
-        val json = mPref.getString(PREF_CURRENT_COUNTRY, null)
-        return mGson.fromJsonToObject(json)
+    override fun getCurrentCountryCode(): String {
+        return mPref.getString(PREF_CURRENT_COUNTRY_CODE, "US")
     }
 
-    override fun saveCurrentCountry(country: Country?) {
-        country?.let {
-            mPref.edit { putString(PREF_CURRENT_COUNTRY, mGson.toJson(country)) }
-        }
+    override fun saveCurrentCountryCode(countryCode: String) {
+        mPref.edit { putString(PREF_CURRENT_COUNTRY_CODE, countryCode) }
+    }
+
+    override fun setLaunchAppAlready() {
+        mPref.edit { putBoolean(PREF_FIRST_TIME_LAUNCH, false) }
+    }
+
+    override fun isFirstTimeLaunchApp(): Boolean {
+        return mPref.getBoolean(PREF_FIRST_TIME_LAUNCH, true)
     }
 }

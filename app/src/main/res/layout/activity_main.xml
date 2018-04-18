@@ -14,7 +14,7 @@
         style="@style/Toolbar"/>
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/vFragmentPager"
+        android:id="@+id/vMainPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

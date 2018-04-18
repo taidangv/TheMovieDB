@@ -12,10 +12,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val adapter = MainContentPagerAdapter(this, supportFragmentManager)
-        vFragmentPager.adapter = adapter
-        vFragmentPager.onPageChangeListener {
+        vMainPager.adapter = adapter
+        vMainPager.onPageChangeListener {
             onPageSelected { vToolbar.title = adapter.getPageTitle(it) }
         }
+
+        vToolbar.title = adapter.getPageTitle(vMainPager.currentItem)
     }
 }

@@ -4,10 +4,7 @@ import com.taidang.themoviedb.di.module.NetworkModule
 import com.taidang.themoviedb.di.module.RepositoryModule
 import com.taidang.themoviedb.presentation.TMDBApp
 import com.taidang.themoviedb.presentation.di.ApplicationScoped
-import com.taidang.themoviedb.presentation.di.module.ApplicationModule
-import com.taidang.themoviedb.presentation.di.module.MapperModule
-import com.taidang.themoviedb.presentation.di.module.SplashModule
-import com.taidang.themoviedb.presentation.di.module.UsecaseModule
+import com.taidang.themoviedb.presentation.di.module.*
 import dagger.Component
 
 @Component(modules = [
@@ -21,4 +18,5 @@ interface ApplicationComponent {
     fun inject(application: TMDBApp)
 
     fun plus(splashModule: SplashModule): SplashComponent
+    fun plus(nowPlayingMoviesModule: NowPlayingMoviesModule): NowPlayingMoviesComponent
 }

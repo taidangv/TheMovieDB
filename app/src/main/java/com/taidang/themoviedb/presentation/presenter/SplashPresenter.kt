@@ -38,14 +38,17 @@ class SplashPresenter(private val getConfigUsecase: GetConfigUsecase, private va
     }
 
     private fun pickCountryIfAny(countries: List<Country>) {
-        if (appConfigManager.getCurrentCountry() == null)
+        if (appConfigManager.isFirstTimeLaunchApp())
             mView?.displayChooseCountryDialog(countries)
         else
             mView?.gotoMainScreen()
     }
 
     override fun pickCountry(country: Country) {
-        appConfigManager.saveCurrentCountry(country)
+        with(appConfigManager) {
+            saveCurrentCountryCode(country.isoCode)
+            setLaunchAppAlready()
+        }
         mView?.gotoMainScreen()
     }
 
