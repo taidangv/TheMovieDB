@@ -21,20 +21,13 @@ class NowPlayingMoviesFragment : Fragment(), NowPlayingMoviesContract.View {
     @Inject
     override lateinit var mPresenter: NowPlayingMoviesContract.Presenter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setupViews()
-
-        // TODO do inject here
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_now_playing, container, false)
     }
 
-    private fun setupViews() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         vMoviesListing.layoutManager = layoutManager
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_now_playing, container)
     }
 
     override fun displayMovies(movies: List<Movie>) {

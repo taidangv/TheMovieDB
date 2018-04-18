@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TheMovieDB</string>
     <string name="dialog_title_choose_country">Select your country</string>
+
+    <string name="now_playing_movie_tab_name">Now Playing</string>
+    <string name="upcoming_movie_tab_name">Upcoming</string>
 </resources>

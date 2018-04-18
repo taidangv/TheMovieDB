@@ -29,7 +29,7 @@
     <style name="LoadingView">
         <item name="android:layout_width">@dimen/splash_loading_size</item>
         <item name="android:layout_height">@dimen/splash_loading_size</item>
-        <item name="indeterminate">true</item>
+        <item name="android:indeterminate">true</item>
     </style>
 
     <style name="MovieItemTitle">
