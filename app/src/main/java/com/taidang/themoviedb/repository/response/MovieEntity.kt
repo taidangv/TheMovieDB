@@ -17,7 +17,7 @@ class MovieEntity(
         // Movie details
         val video: Boolean,
         val homepage: String?,
-        val genres: JsonElement, // too lazy to create entity and mapper
+        val genres: JsonElement?, // too lazy to create entity and mapper
         val overview: String,
         val production_companies: JsonElement, // too lazy to create entity and mapper
         val runtime: Int,

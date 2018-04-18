@@ -7,7 +7,7 @@ import com.taidang.themoviedb.repository.response.MovieEntity
 
 class MovieDetailsMapper : IMapper<MovieEntity, MovieDetails> {
     override fun transform(entity: MovieEntity): MovieDetails {
-        val genres = parseGenres(entity.genres)
+        val genres = parseGenres(entity.genres!!)
         val companies = parseCompanies(entity.production_companies)
         return MovieDetails(
                 entity.runtime,
