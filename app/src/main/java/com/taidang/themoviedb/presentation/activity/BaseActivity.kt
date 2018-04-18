@@ -5,7 +5,7 @@ import org.jetbrains.anko.longToast
 
 open abstract class BaseActivity : AppCompatActivity() {
 
-    protected fun showErrorMessage(error: String?) {
+    fun showErrorMessage(error: String?) {
         longToast("Oops! $error")
     }
 }
