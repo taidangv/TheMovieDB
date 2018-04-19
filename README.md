@@ -1,8 +1,10 @@
 # TheMovieDB
-- Project for learning purpose
-- Under development
+<br>Project for learning purpose
 
+# API Docs
+<br>Learn more about API document here https://developers.themoviedb.org/3
+<br>Request Rate Limiting https://developers.themoviedb.org/3/getting-started/request-rate-limiting
 
 # The Movie Database api key
-1. Obtain your api key here https://developers.themoviedb.org/3/getting-started/introduction
-2. Replace your api key into `local.properties` within format `tmdb_api_key=[your-api-key]`
+<br>Obtain your api key here https://developers.themoviedb.org/3/getting-started/introduction
+<br>Replace your api key into `local.properties` with key/value format `tmdb_api_key=[your-api-key]`
