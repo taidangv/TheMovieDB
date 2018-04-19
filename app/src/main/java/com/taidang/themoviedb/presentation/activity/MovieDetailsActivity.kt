@@ -1,6 +1,8 @@
 package com.taidang.themoviedb.presentation.activity
 
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -23,6 +25,7 @@ import kotlinx.android.synthetic.main.include_movie_details_product_info.*
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
+
 
 class MovieDetailsActivity : BaseActivity(), MovieDetailsContract.View {
 
@@ -101,6 +104,12 @@ class MovieDetailsActivity : BaseActivity(), MovieDetailsContract.View {
         vCastListing.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         vCastListing.setHasFixedSize(true)
         vCastListing.adapter = CastAdapter(filteredList, imagesConfig)
+
+        ContextCompat.getDrawable(this, R.drawable.cast_listing_divider)?.let {
+            val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL)
+            dividerItemDecoration.setDrawable(it)
+            vCastListing.addItemDecoration(dividerItemDecoration)
+        }
     }
 
     private fun renderProductInfo(movie: Movie) {

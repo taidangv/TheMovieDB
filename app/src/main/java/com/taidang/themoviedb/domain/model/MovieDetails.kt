@@ -13,8 +13,8 @@ data class MovieDetails(val duration: Int,
                         val keywords: List<String>) {
 
     fun getDurationStr(): String {
-        val hour = duration % 60
-        val min = duration / 60
+        val hour = duration / 60
+        val min = duration % 60
         return if (hour <= 0) "$min min"
         else "$hour hour $min min"
     }
