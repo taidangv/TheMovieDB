@@ -1,6 +1,7 @@
 package com.taidang.themoviedb.presentation.activity
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.taidang.themoviedb.R
@@ -11,9 +12,11 @@ import com.taidang.themoviedb.domain.model.Movie
 import com.taidang.themoviedb.extension.gone
 import com.taidang.themoviedb.extension.tmdbApp
 import com.taidang.themoviedb.extension.visible
+import com.taidang.themoviedb.presentation.adapter.CastAdapter
 import com.taidang.themoviedb.presentation.contract.MovieDetailsContract
 import com.taidang.themoviedb.presentation.di.module.MovieDetailsModule
 import kotlinx.android.synthetic.main.activity_movie_details.*
+import kotlinx.android.synthetic.main.include_movie_details_cast_section.*
 import kotlinx.android.synthetic.main.include_movie_details_description_section.*
 import kotlinx.android.synthetic.main.include_movie_details_overview_section.*
 import kotlinx.android.synthetic.main.include_movie_details_product_info.*
@@ -92,7 +95,12 @@ class MovieDetailsActivity : BaseActivity(), MovieDetailsContract.View {
     }
 
     private fun renderCasts(casts: List<Cast>) {
-
+        val filteredList = casts.filter {
+            it.profile_path != null && it.profile_path.isNotEmpty()
+        }
+        vCastListing.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        vCastListing.setHasFixedSize(true)
+        vCastListing.adapter = CastAdapter(filteredList, imagesConfig)
     }
 
     private fun renderProductInfo(movie: Movie) {

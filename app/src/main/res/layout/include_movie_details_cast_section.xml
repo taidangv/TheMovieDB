@@ -7,17 +7,20 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/movie_details_section_spacing"
     android:background="@color/movie_details_section_bgr"
-    android:padding="@dimen/movie_details_content_padding"
+    android:paddingBottom="@dimen/movie_details_content_padding"
+    android:paddingTop="@dimen/movie_details_content_padding"
     app:layout_constraintTop_toBottomOf="@+id/vDescriptionContainer">
 
     <TextView
         android:id="@+id/vCastLabel"
         style="@style/MovieDetails_SectionHeadline"
+        android:paddingLeft="@dimen/movie_details_content_padding"
         android:text="@string/label_cast"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingRight="@dimen/movie_details_content_padding"
         android:text="@string/label_see_all"
         android:textColor="@color/text_bright_gray"
         android:textSize="@dimen/movie_details_general_text_size"
@@ -28,7 +31,10 @@
         android:id="@+id/vCastListing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
+        android:clipToPadding="false"
+        android:paddingLeft="@dimen/movie_details_content_padding"
+        android:paddingRight="@dimen/movie_details_content_padding"
         app:layout_constraintTop_toBottomOf="@+id/vCastLabel"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -7,4 +7,6 @@
     <dimen name="movie_details_section_spacing">20dp</dimen>
     <dimen name="movie_details_poster_width">100dp</dimen>
     <dimen name="movie_details_poster_height">145dp</dimen>
+    <dimen name="movie_details_cast_pic_width">100dp</dimen>
+    <dimen name="movie_details_cast_pic_height">140dp</dimen>
 </resources>
