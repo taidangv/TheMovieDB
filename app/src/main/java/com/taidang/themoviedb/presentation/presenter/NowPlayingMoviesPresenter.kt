@@ -13,11 +13,12 @@ class NowPlayingMoviesPresenter(private val getMoviesUsecase: GetMoviesUsecase, 
     private val mDisposables = CompositeDisposable()
 
     override fun start() {
-        getMoviesUsecase.getNowPlayingMovies(appConfigManager.getCurrentCountryCode())
+        val disposable = getMoviesUsecase.getNowPlayingMovies(appConfigManager.getCurrentCountryCode())
                 .doOnSubscribe { mView?.displayLoading() }
                 .subscribe(
                         { mView?.displayMovies(it.movies) },
                         { mView?.displayError(it) })
+        mDisposables.add(disposable)
     }
 
     override fun chooseMovie(movie: Movie) {
