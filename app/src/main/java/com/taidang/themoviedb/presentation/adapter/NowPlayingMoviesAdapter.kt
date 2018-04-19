@@ -1,5 +1,8 @@
 package com.taidang.themoviedb.presentation.adapter
 
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
@@ -19,10 +22,14 @@ class NowPlayingMoviesAdapter(private val movies: List<Movie>,
     : RecyclerView.Adapter<MovieItemVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieItemVH {
-        return MovieItemVH(parent.inflate(R.layout.item_now_playing_movie_port))
-                .apply {
-                    itemView.setOnClickListener { itemClickListener(movies[adapterPosition]) }
-                }
+        val vh = MovieItemVH(parent.inflate(R.layout.item_now_playing_movie_port))
+        // item click listener
+        vh.itemView.setOnClickListener { itemClickListener(movies[vh.adapterPosition]) }
+        // vote icon color filter
+        vh.itemView.findViewById<ImageView>(R.id.vStar).apply {
+            drawable.colorFilter = PorterDuffColorFilter(ContextCompat.getColor(context, R.color.colorAccent), PorterDuff.Mode.SRC_IN)
+        }
+        return vh
     }
 
     override fun onBindViewHolder(holder: MovieItemVH, position: Int) {
