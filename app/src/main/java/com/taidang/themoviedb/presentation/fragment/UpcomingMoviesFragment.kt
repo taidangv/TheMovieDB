@@ -4,18 +4,18 @@ import android.os.Bundle
 import android.view.View
 import com.taidang.themoviedb.domain.model.Movie
 import com.taidang.themoviedb.extension.tmdbApp
-import com.taidang.themoviedb.presentation.contract.NowPlayingMoviesContract
+import com.taidang.themoviedb.presentation.contract.UpcomingMoviesContract
 import com.taidang.themoviedb.presentation.di.module.MoviesListingModule
 import com.taidang.themoviedb.presentation.manager.AppConfigManager
 import javax.inject.Inject
 
-class NowPlayingMoviesFragment : MoviesListingBaseFragment<NowPlayingMoviesContract.Presenter>(),
-        NowPlayingMoviesContract.View {
+class UpcomingMoviesFragment : MoviesListingBaseFragment<UpcomingMoviesContract.Presenter>(),
+        UpcomingMoviesContract.View {
 
     @Inject
     lateinit var mAppConfigManager: AppConfigManager
     @Inject
-    override lateinit var mPresenter: NowPlayingMoviesContract.Presenter
+    override lateinit var mPresenter: UpcomingMoviesContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,7 @@ class NowPlayingMoviesFragment : MoviesListingBaseFragment<NowPlayingMoviesContr
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(mPresenter) {
-            attachView(this@NowPlayingMoviesFragment)
+            attachView(this@UpcomingMoviesFragment)
             start()
         }
     }

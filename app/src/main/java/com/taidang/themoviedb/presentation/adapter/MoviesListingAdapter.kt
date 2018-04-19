@@ -12,9 +12,9 @@ import com.taidang.themoviedb.domain.model.Movie
 import com.taidang.themoviedb.extension.inflate
 import com.taidang.themoviedb.presentation.adapter.viewholder.MovieItemVH
 
-class NowPlayingMoviesAdapter(private val movies: List<Movie>,
-                              private val imagesConfig: ImagesConfig,
-                              private val itemClickListener: (Movie) -> Unit)
+class MoviesListingAdapter(private val movies: List<Movie>,
+                           private val imagesConfig: ImagesConfig,
+                           private val itemClickListener: (Movie) -> Unit)
     : RecyclerView.Adapter<MovieItemVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieItemVH {

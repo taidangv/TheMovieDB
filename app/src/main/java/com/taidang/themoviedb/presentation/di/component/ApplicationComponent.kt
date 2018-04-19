@@ -18,6 +18,6 @@ interface ApplicationComponent {
     fun inject(application: TMDBApp)
 
     fun plus(splashModule: SplashModule): SplashComponent
-    fun plus(nowPlayingMoviesModule: NowPlayingMoviesModule): NowPlayingMoviesComponent
+    fun plus(moviesListingModule: MoviesListingModule): MoviesListingComponent
     fun plus(movieDetailsModule: MovieDetailsModule): MovieDetailsComponent
 }
