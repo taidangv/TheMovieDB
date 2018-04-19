@@ -80,7 +80,7 @@ class MovieDetailsActivity : BaseActivity(), MovieDetailsContract.View {
 
     private fun renderOverview(movie: Movie) {
         Glide.with(this)
-                .load(imagesConfig.buildBackdropUrl(movie.backdropPath, ImageSize.LARGE))
+                .load(imagesConfig.buildBackdropUrl(movie.backdropPath, ImageSize.MEDIUM))
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(vBackdrop)
         Glide.with(this)
@@ -91,7 +91,7 @@ class MovieDetailsActivity : BaseActivity(), MovieDetailsContract.View {
         vName.text = movie.title
         movie.details?.run {
             vTagline.text = tagline
-            val releaseDate = SimpleDateFormat("YYYY", Locale.US).format(movie.releaseDate)
+            val releaseDate = SimpleDateFormat("yyyy", Locale.US).format(movie.releaseDate)
             vPrimaryInfo.text = "${getDurationStr()}  |  $releaseDate  |  ${genres.joinToString()}"
             vDescription.text = description
         }
@@ -117,7 +117,7 @@ class MovieDetailsActivity : BaseActivity(), MovieDetailsContract.View {
     }
 
     private fun renderProductInfo(movie: Movie) {
-        vInfoReleaseDate.text = SimpleDateFormat("MMM dd, YYYY", Locale.US).format(movie.releaseDate)
+        vInfoReleaseDate.text = SimpleDateFormat("MMM dd, yyyy", Locale.US).format(movie.releaseDate)
         movie.details?.run {
             vInfoCountry.text = countries.joinToString()
             vInfoCompanies.text = companies.map { it.name }.joinToString()
