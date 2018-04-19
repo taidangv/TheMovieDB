@@ -38,6 +38,15 @@
                 app:layout_constraintDimensionRatio="h,1:0.55"
                 app:layout_constraintTop_toTopOf="parent"/>
 
+            <TextView
+                android:id="@+id/vContentRating"
+                style="@style/ContentRating"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/vBackdrop"
+                app:layout_constraintLeft_toLeftOf="@+id/vBackdrop"
+                tools:text="PG-13"/>
+
             <include layout="@layout/include_movie_details_overview_section"/>
 
             <include layout="@layout/include_movie_details_description_section"/>

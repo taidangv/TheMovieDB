@@ -13,6 +13,7 @@ class MovieDetailsMapper(private val castMapper: CastMapper, private val clipMap
         val keywords = parseKeywords(entity.keywords)
         val casts = castMapper.transform(entity.credits.cast)
         val clips = clipMapper.transform(entity.videos.results)
+        val contentRating = parseCertification(entity.release_dates)
         return MovieDetails(
                 entity.runtime,
                 genres,
@@ -24,7 +25,8 @@ class MovieDetailsMapper(private val castMapper: CastMapper, private val clipMap
                 entity.status,
                 entity.homepage ?: "",
                 entity.tagline ?: "",
-                keywords)
+                keywords,
+                contentRating)
     }
 
     private fun parseGenres(element: JsonElement): List<String> {
@@ -69,6 +71,22 @@ class MovieDetailsMapper(private val castMapper: CastMapper, private val clipMap
                     .map { it.asJsonObject }
                     .filter { !it.get("name").isJsonNull }
                     .map { it.get("name").asString }
+        }
+    }
+
+    private fun parseCertification(element: JsonElement, country: String = "US"): String? {
+        return if (!element.isJsonObject) ""
+        else {
+            element.asJsonObject.get("results").asJsonArray
+                    .map { it.asJsonObject }
+                    .filter { it.get("iso_3166_1").asString.equals(country, true) }
+                    .flatMap { it.get("release_dates").asJsonArray }
+                    .filter {
+                        val value: JsonElement = it.asJsonObject.get("certification")
+                        value.isJsonPrimitive && value.asString.isNotEmpty()
+                    }
+                    .map { it.asJsonObject.get("certification").asString }
+                    .singleOrNull()
         }
     }
 }

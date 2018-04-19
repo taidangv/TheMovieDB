@@ -27,5 +27,6 @@ class MovieEntity(
         val imdb_id: String,
         val popularity: String,
         val credits: CreditsResponse,
-        val keywords: JsonElement // too lazy to create entity and mapper
+        val keywords: JsonElement, // too lazy to create entity and mapper
+        val release_dates: JsonElement
 )

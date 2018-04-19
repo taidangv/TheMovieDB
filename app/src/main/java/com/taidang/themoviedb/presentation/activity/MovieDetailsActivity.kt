@@ -95,6 +95,10 @@ class MovieDetailsActivity : BaseActivity(), MovieDetailsContract.View {
             vPrimaryInfo.text = "${getDurationStr()}  |  $releaseDate  |  ${genres.joinToString()}"
             vDescription.text = description
         }
+        movie.details?.contentRating?.let {
+            vContentRating.visible()
+            vContentRating.text = it
+        } ?: vContentRating.gone()
     }
 
     private fun renderCasts(casts: List<Cast>) {

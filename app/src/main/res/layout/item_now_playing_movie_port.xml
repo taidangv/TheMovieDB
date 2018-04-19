@@ -24,7 +24,7 @@
         android:layout_gravity="top"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        android:background="@drawable/rating_bgr"
+        android:background="@drawable/movie_rating_bgr"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingBottom="3dp"

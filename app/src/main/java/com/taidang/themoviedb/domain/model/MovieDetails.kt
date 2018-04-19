@@ -10,7 +10,8 @@ data class MovieDetails(val duration: Int,
                         val status: String,
                         val homepage: String,
                         val tagline: String,
-                        val keywords: List<String>) {
+                        val keywords: List<String>,
+                        val contentRating: String?) {
 
     fun getDurationStr(): String {
         val hour = duration / 60

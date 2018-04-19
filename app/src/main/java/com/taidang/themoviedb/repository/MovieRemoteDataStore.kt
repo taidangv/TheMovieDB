@@ -24,7 +24,7 @@ class MovieRemoteDataStore(
     }
 
     override fun getMovieDetails(id: Int): Single<Movie> {
-        return movieHttpClient.getMovieDetails(id, "en-US", "credits,videos,keywords")
+        return movieHttpClient.getMovieDetails(id, "en-US", "release_dates,credits,videos,keywords")
                 .map { movieMapper.transform(it) }
     }
 
