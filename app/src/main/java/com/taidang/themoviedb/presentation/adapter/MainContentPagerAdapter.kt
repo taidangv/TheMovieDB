@@ -20,7 +20,7 @@ class MainContentPagerAdapter(private val context: Context, fm: FragmentManager)
     }
 
     override fun getPageTitle(position: Int): String = when (position) {
-        INDEX_NOW_PLAYING -> context.getString(R.string.now_playing_movie_tab_name)
+        INDEX_NOW_PLAYING -> context.getString(R.string.tab_name_now_playing_movie)
         else -> throw IllegalArgumentException()
     }
 

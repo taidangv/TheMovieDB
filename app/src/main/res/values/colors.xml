@@ -15,4 +15,5 @@
     <color name="toolbar_title_color">@color/colorAccent</color>
 
     <color name="app_bgr">@color/colorPrimaryDark</color>
+    <color name="movie_details_section_bgr">#252526</color>
 </resources>

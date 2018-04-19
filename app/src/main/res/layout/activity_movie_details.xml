@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="@color/app_bgr">
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#19191A">
+
+    <ScrollView
+        android:id="@+id/vMovieDetailsListing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:alpha="0.1"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_item_placeholder"
+                app:layout_constraintBottom_toBottomOf="@+id/vBackdrop"
+                app:layout_constraintLeft_toLeftOf="@+id/vBackdrop"
+                app:layout_constraintRight_toRightOf="@+id/vBackdrop"
+                app:layout_constraintTop_toTopOf="@+id/vBackdrop"/>
+
+            <ImageView
+                android:id="@+id/vBackdrop"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="h,1:0.55"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <include layout="@layout/include_movie_details_overview_section"/>
+
+            <include layout="@layout/include_movie_details_description_section"/>
+
+            <include layout="@layout/include_movie_details_cast_section"/>
+
+            <include layout="@layout/include_movie_details_product_info"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
 
     <ProgressBar
         android:id="@+id/vLoading"
@@ -11,10 +56,5 @@
         android:layout_gravity="center"
         android:visibility="gone"
         tools:visibility="visible"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/vMovieDetailsListing"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </FrameLayout>

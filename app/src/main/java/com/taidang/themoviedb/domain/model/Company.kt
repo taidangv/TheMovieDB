@@ -1,5 +1,5 @@
 package com.taidang.themoviedb.domain.model
 
-data class Company(private val id: Int,
-                   private val name: String,
-                   private val logoPath: String)
+data class Company(val id: Int,
+                   val name: String,
+                   val logoPath: String)

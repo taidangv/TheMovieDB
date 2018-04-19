@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vOverviewInfo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#3B3B3C"
+    android:orientation="vertical"
+    android:padding="@dimen/movie_details_content_padding"
+    app:layout_constraintTop_toBottomOf="@+id/vBackdrop"
+    tools:showIn="@layout/activity_movie_details">
+
+    <TextView
+        android:id="@+id/vName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_brightest_gray"
+        android:textSize="27dp"
+        tools:text="Avenger: Infinity War"/>
+
+    <TextView
+        android:id="@+id/vTagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-3dp"
+        android:textColor="@color/text_bright_gray"
+        android:textSize="@dimen/movie_details_general_text_size"
+        android:textStyle="italic"
+        tools:text="This is tagline"/>
+
+    <TextView
+        android:id="@+id/vPrimaryInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_bright_gray"
+        android:textSize="@dimen/movie_details_general_text_size"
+        tools:text="PG-13 | 2018 | 2h 31min | Action, Adventure, Fantasy"/>
+
+</LinearLayout>

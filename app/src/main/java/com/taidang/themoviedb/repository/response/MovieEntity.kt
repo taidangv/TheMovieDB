@@ -20,6 +20,7 @@ class MovieEntity(
         val genres: JsonElement?, // too lazy to create entity and mapper
         val overview: String,
         val production_companies: JsonElement, // too lazy to create entity and mapper
+        val production_countries: JsonElement, // too lazy to create entity and mapper
         val runtime: Int,
         val status: String,
         val tagline: String?,

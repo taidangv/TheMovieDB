@@ -9,6 +9,7 @@ class MovieDetailsMapper(private val castMapper: CastMapper, private val clipMap
     override fun transform(entity: MovieEntity): MovieDetails {
         val genres = parseGenres(entity.genres!!)
         val companies = parseCompanies(entity.production_companies)
+        val countries = parseCountries(entity.production_countries)
         val keywords = parseKeywords(entity.keywords)
         val casts = castMapper.transform(entity.credits.cast)
         val clips = clipMapper.transform(entity.videos.results)
@@ -19,6 +20,7 @@ class MovieDetailsMapper(private val castMapper: CastMapper, private val clipMap
                 casts,
                 clips,
                 companies,
+                countries,
                 entity.status,
                 entity.homepage ?: "",
                 entity.tagline ?: "",
@@ -46,6 +48,17 @@ class MovieDetailsMapper(private val castMapper: CastMapper, private val clipMap
                     .map {
                         Company(it.get("id").asInt, it.get("name").asString, it.get("logo_path").asString)
                     }
+        }
+    }
+
+    private fun parseCountries(element: JsonElement): List<String> {
+        return if (!element.isJsonArray) emptyList()
+        else {
+            element.asJsonArray
+                    .filter { it.isJsonObject }
+                    .map { it.asJsonObject }
+                    .filter { !it.get("name").isJsonNull }
+                    .map { it.get("name").asString }
         }
     }
 

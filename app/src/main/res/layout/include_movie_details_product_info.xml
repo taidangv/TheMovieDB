@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/movie_details_section_spacing"
+    android:background="@color/movie_details_section_bgr"
+    android:orientation="vertical"
+    android:padding="@dimen/movie_details_content_padding"
+    app:layout_constraintTop_toBottomOf="@+id/vCastSection">
+
+    <TextView
+        android:id="@+id/vInformationLabel"
+        style="@style/MovieDetails_SectionHeadline"
+        android:layout_marginBottom="5dp"
+        android:text="@string/label_information"/>
+
+    <!--release date-->
+    <TextView
+        style="@style/MovieDetails_ProductInfo_Label"
+        android:text="@string/label_release_date"/>
+
+    <TextView
+        android:id="@+id/vInfoReleaseDate"
+        style="@style/MovieDetails_ProductInfo_Text"
+        tools:text="April 27, 2018"/>
+
+    <!--country-->
+    <TextView
+        style="@style/MovieDetails_ProductInfo_Label"
+        android:text="@string/label_prod_country"/>
+
+    <TextView
+        android:id="@+id/vInfoCountry"
+        style="@style/MovieDetails_ProductInfo_Text"
+        tools:text="USA"/>
+
+    <!--company-->
+    <TextView
+        style="@style/MovieDetails_ProductInfo_Label"
+        android:text="@string/label_prod_company"/>
+
+    <TextView
+        android:id="@+id/vInfoCompanies"
+        style="@style/MovieDetails_ProductInfo_Text"
+        tools:text="April 27, 2018"/>
+
+    <!--keyword-->
+    <TextView
+        style="@style/MovieDetails_ProductInfo_Label"
+        android:text="@string/label_keywords"/>
+
+    <TextView
+        android:id="@+id/vInfoKeyword"
+        style="@style/MovieDetails_ProductInfo_Text"
+        tools:text="avenger, super hero, marvel"/>
+
+</LinearLayout>

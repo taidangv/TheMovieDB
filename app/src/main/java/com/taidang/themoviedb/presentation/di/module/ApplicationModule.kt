@@ -53,4 +53,8 @@ class ApplicationModule(private val application: Application) {
     fun providesAppConfigManager(pref: SharedPreferences, gson: Gson): AppConfigManager {
         return SharedPrefAppConfigManager(pref, gson)
     }
+
+    @Provides
+    fun providesImagesConfig(appConfigManager: AppConfigManager) = appConfigManager.getImagesConfig()
+
 }

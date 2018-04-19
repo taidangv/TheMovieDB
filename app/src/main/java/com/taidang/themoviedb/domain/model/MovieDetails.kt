@@ -6,7 +6,16 @@ data class MovieDetails(val duration: Int,
                         val casts: List<Cast>,
                         val clips: List<Clip>,
                         val companies: List<Company>,
+                        val countries: List<String>,
                         val status: String,
                         val homepage: String,
                         val tagline: String,
-                        val keywords: List<String>)
+                        val keywords: List<String>) {
+
+    fun getDurationStr(): String {
+        val hour = duration % 60
+        val min = duration / 60
+        return if (hour <= 0) "$min min"
+        else "$hour hour $min min"
+    }
+}
