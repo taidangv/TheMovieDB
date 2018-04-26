@@ -11,7 +11,7 @@ class MovieDetailsPresenter(private val getMovieDetailsUsecase: GetMovieDetailsU
     private val disposables = CompositeDisposable()
 
     override fun start() {
-        getMovieDetailsUsecase.getMovieDetails(movieId)
+        val disposable = getMovieDetailsUsecase.getMovieDetails(movieId)
                 .doOnSubscribe { mView?.displayLoading() }
                 .subscribe(
                         {
@@ -26,6 +26,7 @@ class MovieDetailsPresenter(private val getMovieDetailsUsecase: GetMovieDetailsU
                                 displayError(it)
                             }
                         })
+        disposables.add(disposable)
     }
 
     override fun attachView(v: MovieDetailsContract.View) {
