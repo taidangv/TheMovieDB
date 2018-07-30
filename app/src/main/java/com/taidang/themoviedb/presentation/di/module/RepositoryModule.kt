@@ -15,8 +15,9 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class RepositoryModule {
+object RepositoryModule {
 
+    @JvmStatic
     @Provides
     @ApplicationScoped
     fun providesConfigurationRepo(configurationHttpClient: ConfigurationHttpClient,
@@ -25,6 +26,7 @@ class RepositoryModule {
         return ConfigurationRemoteDataStore(configurationHttpClient, apiConfigurationMapper, countryMapper)
     }
 
+    @JvmStatic
     @Provides
     @ApplicationScoped
     fun providesMovieRepo(movieHttpClient: MovieHttpClient, moviesInfoMapper: MoviesInfoMapper, movieMapper: MovieMapper): MovieRepository {

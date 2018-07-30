@@ -19,8 +19,9 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Named
 
 @Module
-class NetworkModule {
+object NetworkModule {
 
+    @JvmStatic
     @Provides
     @ApplicationScoped
     fun providesGson(): Gson {
@@ -30,6 +31,7 @@ class NetworkModule {
                 .create()
     }
 
+    @JvmStatic
     @Provides
     @ApplicationScoped
     fun providesOkHttpClient(@Named(DependencyName.DI_NAME_DEBUGGABLE) isDebug: Boolean, @Named(DependencyName.DI_NAME_API_KEY) apiKey: String): OkHttpClient {
@@ -56,6 +58,7 @@ class NetworkModule {
                 .build()
     }
 
+    @JvmStatic
     @Provides
     @ApplicationScoped
     fun providesRetrofit(okHttpClient: OkHttpClient, gson: Gson, @Named(DependencyName.DI_NAME_API_BASE_URL) baseUrl: String): Retrofit {
@@ -67,12 +70,14 @@ class NetworkModule {
                 .build()
     }
 
+    @JvmStatic
     @Provides
     @ApplicationScoped
     fun providesConfigurationHttpClient(retrofit: Retrofit): ConfigurationHttpClient {
         return retrofit.create(ConfigurationHttpClient::class.java)
     }
 
+    @JvmStatic
     @Provides
     @ApplicationScoped
     fun providesMovieHttpClient(retrofit: Retrofit): MovieHttpClient {

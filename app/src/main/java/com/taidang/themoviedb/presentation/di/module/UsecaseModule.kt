@@ -10,18 +10,21 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class UsecaseModule {
+object UsecaseModule {
 
+    @JvmStatic
     @Provides
     fun providesGetConfigUsecase(schedulerFactory: SchedulerFactory, configurationRepository: ConfigurationRepository): GetConfigUsecase {
         return GetConfigUsecase(schedulerFactory, configurationRepository)
     }
 
+    @JvmStatic
     @Provides
     fun providesGetMoviesUsecase(schedulerFactory: SchedulerFactory, movieRepository: MovieRepository): GetMoviesUsecase {
         return GetMoviesUsecase(schedulerFactory, movieRepository)
     }
 
+    @JvmStatic
     @Provides
     fun providesGetMovieDetailsUsecase(schedulerFactory: SchedulerFactory, movieRepository: MovieRepository): GetMovieDetailsUsecase {
         return GetMovieDetailsUsecase(schedulerFactory, movieRepository)
