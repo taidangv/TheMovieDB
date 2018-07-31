@@ -5,7 +5,6 @@ import android.view.View
 import com.taidang.themoviedb.domain.model.Movie
 import com.taidang.themoviedb.extension.tmdbApp
 import com.taidang.themoviedb.presentation.contract.UpcomingMoviesContract
-import com.taidang.themoviedb.presentation.di.module.MoviesListingModule
 import com.taidang.themoviedb.presentation.manager.AppConfigManager
 import javax.inject.Inject
 
@@ -20,7 +19,6 @@ class UpcomingMoviesFragment : MoviesListingBaseFragment<UpcomingMoviesContract.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         tmdbApp.appComponent
-                .plus(MoviesListingModule())
                 .inject(this)
     }
 

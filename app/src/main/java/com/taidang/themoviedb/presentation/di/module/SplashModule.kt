@@ -8,8 +8,9 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class SplashModule {
+object SplashModule {
 
+    @JvmStatic
     @Provides
     fun providesSplashPresenter(getConfigUsecase: GetConfigUsecase, appConfigManager: AppConfigManager): SplashContract.Presenter {
         return SplashPresenter(getConfigUsecase, appConfigManager)

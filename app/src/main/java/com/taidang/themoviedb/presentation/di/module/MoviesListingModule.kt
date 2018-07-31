@@ -10,13 +10,15 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class MoviesListingModule {
+object MoviesListingModule {
 
+    @JvmStatic
     @Provides
     fun providesNowPlayingMoviesPresenter(getMoviesUsecase: GetMoviesUsecase, appConfigManager: AppConfigManager): NowPlayingMoviesContract.Presenter {
         return NowPlayingMoviesPresenter(getMoviesUsecase, appConfigManager)
     }
 
+    @JvmStatic
     @Provides
     fun providesUpcomingMoviesPresenter(getMoviesUsecase: GetMoviesUsecase, appConfigManager: AppConfigManager): UpcomingMoviesContract.Presenter {
         return UpcomingMoviesPresenter(getMoviesUsecase, appConfigManager)

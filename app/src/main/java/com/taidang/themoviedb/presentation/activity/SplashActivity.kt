@@ -7,7 +7,6 @@ import com.taidang.themoviedb.extension.gone
 import com.taidang.themoviedb.extension.tmdbApp
 import com.taidang.themoviedb.extension.visible
 import com.taidang.themoviedb.presentation.contract.SplashContract
-import com.taidang.themoviedb.presentation.di.module.SplashModule
 import kotlinx.android.synthetic.main.activity_splash.*
 import org.jetbrains.anko.selector
 import org.jetbrains.anko.startActivity
@@ -22,9 +21,7 @@ class SplashActivity : BaseActivity(), SplashContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        tmdbApp.appComponent
-                .plus(SplashModule())
-                .inject(this)
+        tmdbApp.appComponent.inject(this)
 
         with(mPresenter) {
             attachView(this@SplashActivity)
@@ -35,10 +32,10 @@ class SplashActivity : BaseActivity(), SplashContract.View {
     override fun displayChooseCountryDialog(countries: List<Country>) {
         val title = getString(R.string.dialog_title_choose_country)
         val displayLst = countries.map { "${it.name} (${it.isoCode})" }
-        selector(title, displayLst,
-                { _, idx ->
-                    mPresenter.pickCountry(countries[idx])
-                })
+        selector(title, displayLst
+        ) { _, idx ->
+            mPresenter.pickCountry(countries[idx])
+        }
     }
 
     override fun displayLoading() {
