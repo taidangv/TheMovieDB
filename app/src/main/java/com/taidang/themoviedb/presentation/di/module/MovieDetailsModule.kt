@@ -15,8 +15,13 @@ class MovieDetailsModule(private val movieId: Int) {
     @Named(DependencyName.DI_MOVIE_ID)
     fun providesMovieId() = movieId
 
-    @Provides
-    fun providesMovieDetailsPresenter(getMovieDetailsUsecase: GetMovieDetailsUsecase, @Named(DependencyName.DI_MOVIE_ID) movieId: Int): MovieDetailsContract.Presenter {
-        return MovieDetailsPresenter(getMovieDetailsUsecase, movieId)
+
+    @Module
+    companion object {
+        @JvmStatic
+        @Provides
+        fun providesMovieDetailsPresenter(getMovieDetailsUsecase: GetMovieDetailsUsecase, @Named(DependencyName.DI_MOVIE_ID) movieId: Int): MovieDetailsContract.Presenter {
+            return MovieDetailsPresenter(getMovieDetailsUsecase, movieId)
+        }
     }
 }

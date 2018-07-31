@@ -20,27 +20,8 @@ class ApplicationModule(private val application: Application) {
 
     @Provides
     @ApplicationScoped
-    @Named(DependencyName.DI_NAME_DEBUGGABLE)
-    fun providesDebuggable(): Boolean = BuildConfig.DEBUG
-
-    @Provides
-    @ApplicationScoped
     @Named(DependencyName.DI_NAME_APP_CONTEXT)
     fun providesApplicationContext(): Context = application.applicationContext
-
-    @Provides
-    @ApplicationScoped
-    @Named(DependencyName.DI_NAME_API_BASE_URL)
-    fun providesApiBaseUrl(): String = "https://api.themoviedb.org/3/"
-
-    @Provides
-    @ApplicationScoped
-    @Named(DependencyName.DI_NAME_API_KEY)
-    fun providesApiKey(): String = BuildConfig.API_KEY
-
-    @Provides
-    @ApplicationScoped
-    fun providesSchedulerFactory(): SchedulerFactory = SchedulerFactory()
 
     @Provides
     @ApplicationScoped
@@ -56,5 +37,32 @@ class ApplicationModule(private val application: Application) {
 
     @Provides
     fun providesImagesConfig(appConfigManager: AppConfigManager) = appConfigManager.getImagesConfig()
+
+
+    @Module
+    companion object {
+        @JvmStatic
+        @Provides
+        @ApplicationScoped
+        @Named(DependencyName.DI_NAME_DEBUGGABLE)
+        fun providesDebuggable(): Boolean = BuildConfig.DEBUG
+
+        @JvmStatic
+        @Provides
+        @ApplicationScoped
+        @Named(DependencyName.DI_NAME_API_BASE_URL)
+        fun providesApiBaseUrl(): String = "https://api.themoviedb.org/3/"
+
+        @JvmStatic
+        @Provides
+        @ApplicationScoped
+        @Named(DependencyName.DI_NAME_API_KEY)
+        fun providesApiKey(): String = BuildConfig.API_KEY
+
+        @JvmStatic
+        @Provides
+        @ApplicationScoped
+        fun providesSchedulerFactory(): SchedulerFactory = SchedulerFactory()
+    }
 
 }
