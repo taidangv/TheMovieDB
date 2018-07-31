@@ -6,8 +6,9 @@ import com.taidang.themoviedb.presentation.contract.SplashContract
 import com.taidang.themoviedb.presentation.manager.AppConfigManager
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.zipWith
+import javax.inject.Inject
 
-class SplashPresenter(private val getConfigUsecase: GetConfigUsecase, private val appConfigManager: AppConfigManager)
+class SplashPresenter @Inject constructor(private val getConfigUsecase: GetConfigUsecase, private val appConfigManager: AppConfigManager)
     : SplashContract.Presenter {
 
     override var mView: SplashContract.View? = null

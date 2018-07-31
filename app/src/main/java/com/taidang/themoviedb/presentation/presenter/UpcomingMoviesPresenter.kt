@@ -5,8 +5,9 @@ import com.taidang.themoviedb.domain.usecase.GetMoviesUsecase
 import com.taidang.themoviedb.presentation.contract.UpcomingMoviesContract
 import com.taidang.themoviedb.presentation.manager.AppConfigManager
 import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
-class UpcomingMoviesPresenter(private val getMoviesUsecase: GetMoviesUsecase, private val appConfigManager: AppConfigManager)
+class UpcomingMoviesPresenter @Inject constructor(private val getMoviesUsecase: GetMoviesUsecase, private val appConfigManager: AppConfigManager)
     : UpcomingMoviesContract.Presenter {
 
     override var mView: UpcomingMoviesContract.View? = null
