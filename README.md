@@ -1,5 +1,9 @@
-# TheMovieDB
-<br>Project for learning purpose
+# Work in progress 👷‍♀️⛏👷🔧️👷🔧
+- Breakdown usecases to be smaller (single responsibility)
+- Architecture components (ViewModel, LiveData, Room)
+- Kotlin coroutines
+- Unit testing
+
 
 # API Docs
 <br>Learn more about API document here https://developers.themoviedb.org/3
