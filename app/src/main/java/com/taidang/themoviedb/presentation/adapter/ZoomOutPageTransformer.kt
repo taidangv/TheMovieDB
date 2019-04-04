@@ -1,7 +1,7 @@
 package com.taidang.themoviedb.presentation.adapter
 
-import android.support.v4.view.ViewPager
 import android.view.View
+import androidx.viewpager.widget.ViewPager
 
 
 class ZoomOutPageTransformer : ViewPager.PageTransformer {

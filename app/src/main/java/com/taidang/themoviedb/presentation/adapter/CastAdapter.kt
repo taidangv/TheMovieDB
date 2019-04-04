@@ -1,7 +1,7 @@
 package com.taidang.themoviedb.presentation.adapter
 
-import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.taidang.themoviedb.R
 import com.taidang.themoviedb.domain.model.Cast
 import com.taidang.themoviedb.domain.model.ImagesConfig

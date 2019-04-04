@@ -2,20 +2,21 @@ package com.taidang.themoviedb.presentation.adapter
 
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
 import com.taidang.themoviedb.R
 import com.taidang.themoviedb.domain.model.ImagesConfig
 import com.taidang.themoviedb.domain.model.Movie
 import com.taidang.themoviedb.extension.inflate
 import com.taidang.themoviedb.presentation.adapter.viewholder.MovieItemVH
 
-class MoviesListingAdapter(private val movies: List<Movie>,
-                           private val imagesConfig: ImagesConfig,
-                           private val itemClickListener: (Movie) -> Unit)
-    : RecyclerView.Adapter<MovieItemVH>() {
+class MoviesListingAdapter(
+    private val movies: List<Movie>,
+    private val imagesConfig: ImagesConfig,
+    private val itemClickListener: (Movie) -> Unit
+) : RecyclerView.Adapter<MovieItemVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieItemVH {
         val vh = MovieItemVH(parent.inflate(R.layout.item_now_playing_movie_port))

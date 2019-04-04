@@ -1,12 +1,12 @@
 package com.taidang.themoviedb.presentation.fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.taidang.themoviedb.R
 import com.taidang.themoviedb.domain.model.ImagesConfig
 import com.taidang.themoviedb.domain.model.Movie
@@ -16,7 +16,9 @@ import com.taidang.themoviedb.presentation.activity.MovieDetailsActivity
 import com.taidang.themoviedb.presentation.adapter.GridItemDecoration
 import com.taidang.themoviedb.presentation.adapter.MoviesListingAdapter
 import com.taidang.themoviedb.presentation.contract.base.IBaseView
-import kotlinx.android.synthetic.main.fragment_movies_listing.*
+import kotlinx.android.synthetic.main.fragment_movies_listing.vErrorMessage
+import kotlinx.android.synthetic.main.fragment_movies_listing.vListingView
+import kotlinx.android.synthetic.main.fragment_movies_listing.vLoading
 import org.jetbrains.anko.support.v4.dip
 import org.jetbrains.anko.support.v4.startActivity
 

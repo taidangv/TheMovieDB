@@ -12,7 +12,7 @@ android {
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "API_KEY", "\"" + getApiKey() + "\""
     }
@@ -40,13 +40,13 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
     implementation "org.jetbrains.anko:anko-commons:$rootProject.ankoVersion"
     implementation "org.jetbrains.anko:anko-support-v4:$rootProject.ankoVersion"
-    implementation "androidx.core:core-ktx:${rootProject.androidKTXVersion}"
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxkotlin:${rootProject.rxKotlinVersion}"
     implementation "io.reactivex.rxjava2:rxandroid:${rootProject.rxAndroidVersion}"
-    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    implementation "com.android.support:recyclerview-v7:${rootProject.supportLibraryVersion}"
-    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    implementation "androidx.core:core-ktx:${rootProject.coreKtx}"
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompat"
+    implementation "androidx.recyclerview:recyclerview:${rootProject.recyclerView}"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayout"
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
@@ -57,6 +57,6 @@ dependencies {
 
     // testing dependencies
     testImplementation "junit:junit:$rootProject.junitVersion"
-    androidTestImplementation "com.android.support.test:runner:$rootProject.testRunnerVersion"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoCoreVersion"
+    androidTestImplementation "androidx.test:runner:$rootProject.testRunnerVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoCoreVersion"
 }

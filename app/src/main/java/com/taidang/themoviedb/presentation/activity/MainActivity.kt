@@ -1,7 +1,7 @@
 package com.taidang.themoviedb.presentation.activity
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.taidang.themoviedb.R
 import com.taidang.themoviedb.presentation.adapter.MainContentPagerAdapter
 import com.taidang.themoviedb.presentation.adapter.ZoomOutPageTransformer

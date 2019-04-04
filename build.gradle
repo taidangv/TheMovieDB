@@ -7,13 +7,14 @@ ext {
     compileSdkVersion = 28
 
     // library dependencies
-    ankoVersion = '0.10.4'
-    androidKTXVersion = '0.3'
+    ankoVersion = '0.10.8'
     rxJavaVersion = '2.1.12'
     rxKotlinVersion = '2.2.0'
     rxAndroidVersion = '2.0.2'
-    supportLibraryVersion = '27.1.1'
-    constraintLayoutVersion = '1.1.0'
+    coreKtx = '1.1.0-alpha05'
+    appCompat = '1.1.0-alpha04'
+    recyclerView = '1.1.0-alpha04'
+    constraintLayout = '2.0.0-alpha3'
     retrofitVersion = '2.4.0'
     okhttpLoggingVersion = '3.10.0'
     daggerVersion = '2.15'
@@ -21,8 +22,8 @@ ext {
 
     // testing library dependencies
     junitVersion = '4.12'
-    testRunnerVersion = '1.0.1'
-    espressoCoreVersion = '3.0.1'
+    testRunnerVersion = '1.1.2-alpha02'
+    espressoCoreVersion = '3.2.0-alpha02'
 }
 
 buildscript {

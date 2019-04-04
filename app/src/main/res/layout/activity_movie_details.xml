@@ -14,7 +14,7 @@
         android:visibility="gone"
         tools:visibility="visible">
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="50dp">
@@ -55,7 +55,7 @@
 
             <include layout="@layout/include_movie_details_product_info"/>
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 

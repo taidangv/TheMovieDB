@@ -8,13 +8,13 @@
     android:orientation="vertical"
     tools:context=".presentation.activity.MainActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/vToolbar"
         style="@style/Toolbar"/>
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/vMainPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

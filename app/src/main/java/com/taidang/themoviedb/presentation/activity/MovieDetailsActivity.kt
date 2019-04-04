@@ -1,9 +1,9 @@
 package com.taidang.themoviedb.presentation.activity
 
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.taidang.themoviedb.R
@@ -17,13 +17,22 @@ import com.taidang.themoviedb.extension.visible
 import com.taidang.themoviedb.presentation.adapter.CastAdapter
 import com.taidang.themoviedb.presentation.contract.MovieDetailsContract
 import com.taidang.themoviedb.presentation.di.module.MovieDetailsModule
-import kotlinx.android.synthetic.main.activity_movie_details.*
-import kotlinx.android.synthetic.main.include_movie_details_cast_section.*
-import kotlinx.android.synthetic.main.include_movie_details_description_section.*
-import kotlinx.android.synthetic.main.include_movie_details_overview_section.*
-import kotlinx.android.synthetic.main.include_movie_details_product_info.*
+import kotlinx.android.synthetic.main.activity_movie_details.vBackdrop
+import kotlinx.android.synthetic.main.activity_movie_details.vContentRating
+import kotlinx.android.synthetic.main.activity_movie_details.vLoading
+import kotlinx.android.synthetic.main.activity_movie_details.vMovieDetailsListing
+import kotlinx.android.synthetic.main.include_movie_details_cast_section.vCastListing
+import kotlinx.android.synthetic.main.include_movie_details_description_section.vDescription
+import kotlinx.android.synthetic.main.include_movie_details_description_section.vPoster
+import kotlinx.android.synthetic.main.include_movie_details_overview_section.vName
+import kotlinx.android.synthetic.main.include_movie_details_overview_section.vPrimaryInfo
+import kotlinx.android.synthetic.main.include_movie_details_overview_section.vTagline
+import kotlinx.android.synthetic.main.include_movie_details_product_info.vInfoCompanies
+import kotlinx.android.synthetic.main.include_movie_details_product_info.vInfoCountry
+import kotlinx.android.synthetic.main.include_movie_details_product_info.vInfoKeyword
+import kotlinx.android.synthetic.main.include_movie_details_product_info.vInfoReleaseDate
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Locale
 import javax.inject.Inject
 
 
